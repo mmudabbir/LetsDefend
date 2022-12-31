@@ -1,8 +1,0 @@
-Determining the Attack surface.
-- Domain information: host.io, whois, whoxy.com, 
-- Subdomain information: securitytrails, sublist3r, aquatone
-- Websites and its technology information: httpx, wappalyzer, whatrunsAquatone
-- IP Addresses and IP blocks exposure: Shodan, binaryedge
-- DNS records:  Google's dig tool, dnslytics.com, dig command (linux)
-- C-level employee mails: apollo, contactout
-- Network Application and operating system: Shodan

@@ -1,0 +1,51 @@
+Determining the Attack surface.
+- Domain information: host.io, whois, whoxy.com, 
+- Subdomain information: securitytrails, sublist3r, aquatone
+- Websites and its technology information: httpx, wappalyzer, whatrunsAquatone
+- IP Addresses and IP blocks exposure: Shodan, binaryedge
+- DNS records:  Google's dig tool, dnslytics.com, dig command (linux)
+- C-level employee mails: apollo, contactout
+- Network Application and operating system: Shodan
+- Bin number and swift codes: bintable.com
+- ssl certificates: censys
+
+Gethering Information:
+- Shodan
+- IOCs providers: Alienvault, Malwarebazaar, Abuse.ch, Malshare, Anyrun, Virustotal, Hybrid-Analysis, Totalhash, Phishunt, Spamhaus
+- Hacker Forums: Hacker forums are one of the most important places to gather intelligence. Threat actors usually share in hacker forums first when they are 
+                 in preparation for an attack or before they launch a campaign against an organization or a country. By analyzing the posts they made in these forums, 
+                 we can find answers to critical questions such as the direction of the attack, the targets, the methods to be used in the attack, and who is behind 
+                 the attack.
+- Chatters: Platforms, where bilateral or multiple written, and audio-visual communications are possible, are important in terms of threat intelligence. 
+            Threat actors may share sensitive data throughout their communications with each other on these chatters or important information or documents regarding 
+            the preparation of an attack may be disclosed. This is why we should follow the chatters as possible as we can and record everything on those chatters into 
+            our database as much as possible. Today, popular chatters frequently used by threat actors are applications such as Telegram, ICQ, IRC, and Discord. It is 
+            possible to see posts selling credit cards, accounts, and sales for direct access to companies on some groups on these platforms. Below are screenshots of 
+            some chatters.
+- Code Repositories: Code Repositories are full of sensitive data that has been forgotten in them. Organizations or individual users may forget database access information, login information, sensitive configuration files for their applications, secret API keys, etc. in the code repositories. This information may sometimes be detected by malicious actors and leveraged in their attacks. Therefore, monitoring public code repositories is important from the threat intelligence perspective. In addition, when a new vulnerability is announced, its exploit is often uploaded to these code repositories and it is important to identify them. Github, Gitlab, and Bitbucket are some of the popular code repository applications. It is possible to find sensitive data when searching with certain parameters in these applications. For example, let's search for "password" "abanca.com" in github
+- File Share Websites: Popular sites that allow file uploading anonymously are sites such as Anonfiles, Mediafire, Uploadfiles, WeTransfer, File.io. 
+                      Method: We cannot download files from these sites directly, therefore, we need to use different methods other than API to extract 
+                      data from them. There are 2 different methods to download data from these sites. First, before guessing the file name on such sites, 
+                      we detect the unique keys produced for that file through the guessing algorithm, and then by sending a request to the application server with
+                      that key we can retrieve the file in the returned response. This method is costly because it requires large processing power. 
+                      The second method is a simpler method with a very low cost. When you upload any file to these sites as public, it is observed that browsers 
+                      index these files after a while. These indexed files can be captured and pulled to our own servers by using Dork through a script. Dork is queries 
+                      that allow us to search more effectively and quickly.
+- Public Buckets: Bucket applications are cloud-based environments that organizations or individuals use to store their data. These environments should be closed to 
+                  the outside of the network and only the authorized users of the organization should access them. But this is not the case all the time and these 
+                  environments may be left wide open which causes the disclosure of sensitive and confidential data. For this reason, buckets left as the public have 
+                  been an important source of threat intelligence. In order to detect these public buckets and to find the endpoints, brute force attempts can be made.
+                  Let’s say there is a structure named “bucketname.amazonaws.com”, we can detect existing buckets by brute force in the bucket name field in this 
+                  structure, and then search for files under that endpoint. It is sufficient to have a wordlist containing the names of the organization for this. 
+                  Popular applications include Amazon S3 Buckets, Azure Blobs, and Google Cloud Storage.
+- Honeypots: Honeypots are one of the most effective ways to catch the attackers. Systems that are easy to breach are very attractive to attackers. 
+             Honeypots are basically systems with security vulnerabilities that are not connected to any critical server or system that works with the logic of 
+             trapping. It is intended for attackers to attack honeypots so we can actively collect IOCs such as attacker IPs and use them in our own systems. 
+             If we wish, we can build our own honeypot or we can use popular honeypots that are already active. Kippo, Cowrite, Glastopf, Nodepot, Google Hack 
+             Honeypot, ElasticHoney, Honeymail are some of the popular honeypots.
+SIEM/IDS/IPS/Firewalls: An institution may receive hundreds of attacks per day and these attacks may be prevented by the written rules on the security products used. 
+                        One of the most effective sources of intelligence is the logs of these security products. The logs collected in SIEM or the logs containing the
+                        blocked IP addresses of the firewall will give us good information about the attackers. We can obtain the list that contains the attacker's IPs
+                        by filtering these logs. Also, the hash of a malicious file captured on the SIEM is intelligence for us. It will always keep us one step ahead 
+                        if we see the products we use within the organization as critical resources and use them effectively by creating rules and scripts to collect 
+                        data from these sources.
